@@ -19,30 +19,28 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
 
-        String uniqueId = String.valueOf(event.getPlayer().getUniqueId()).replace("-", "");
-
-        List<CartItem> items = new ArrayList<>();
-        List<PlayerCart> carts = new ArrayList<>();
-
-        StorageGui playerDeliverGUI = shopconnectbridge.playerDeliverGUI.get(String.valueOf(event.getPlayer().getUniqueId()));
-
-        try {
-
-
-            items = shopconnectbridge.cartItemDao.queryBuilder().where().eq("uuid", uniqueId).query();
-            carts = shopconnectbridge.playerCartDao.queryBuilder().where().eq("uuid", uniqueId).query();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
 
         //如果cart里有物品或者playerCart有则依照配置文件选择开启或者关闭
-
-
         if (Util.getConfig().getBoolean("general-settings.auto-open-gui")) {
+
+            String uniqueId = String.valueOf(event.getPlayer().getUniqueId()).replace("-", "");
+
+            List<CartItem> items = new ArrayList<>();
+            List<PlayerCart> carts = new ArrayList<>();
+
+            StorageGui playerDeliverGUI = shopconnectbridge.playerDeliverGUI.get(String.valueOf(event.getPlayer().getUniqueId()));
+
+            try {
+
+
+                items = shopconnectbridge.cartItemDao.queryBuilder().where().eq("uuid", uniqueId).query();
+                carts = shopconnectbridge.playerCartDao.queryBuilder().where().eq("uuid", uniqueId).query();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
 
             if (carts.size() > 0 || items.size() > 0 || !GUIManipulation.isGUIEmpty(playerDeliverGUI)) {
                 StorageGui gui = DeliverGUI.getGui();
-                System.out.println("触发登录");
                 GUIManipulation.openGUI(gui, event.getPlayer(), shopconnectbridge.playerDeliverGUI);
 
             }
