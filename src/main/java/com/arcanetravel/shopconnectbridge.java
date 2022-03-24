@@ -76,6 +76,7 @@ public final class shopconnectbridge extends JavaPlugin {
         //注册Dao
         try {
             cartItemDao = DaoManager.createDao(source, CartItem.class);
+            playerCartDao = DaoManager.createDao(source, PlayerCart.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }

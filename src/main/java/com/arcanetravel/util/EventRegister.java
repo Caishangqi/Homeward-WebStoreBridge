@@ -2,6 +2,7 @@ package com.arcanetravel.util;
 
 
 import com.arcanetravel.listener.GUIItemSaveListener;
+import com.arcanetravel.listener.PlayerJoinListener;
 import com.arcanetravel.listener.PlayerLeaveListener;
 import com.arcanetravel.listener.WebStoreImportListener;
 import com.arcanetravel.shopconnectbridge;
@@ -24,6 +25,7 @@ public class EventRegister extends CommandRegister {
         plugin.getServer().getPluginManager().registerEvents(new WebStoreImportListener(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new GUIItemSaveListener(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerLeaveListener(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), plugin);
         Util.showLog(LOAD, "&f事件模块注册完毕");
 
     }

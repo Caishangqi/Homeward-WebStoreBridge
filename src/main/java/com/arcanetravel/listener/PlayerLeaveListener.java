@@ -19,12 +19,9 @@ public class PlayerLeaveListener implements Listener {
 
         if (playerDeliverGUI.containsKey(String.valueOf(event.getPlayer().getUniqueId()))) {
             //
-            System.out.println("是有gui");
             StorageGui storageGui = playerDeliverGUI.get(String.valueOf(event.getPlayer().getUniqueId()));
             Bukkit.getServer().getPluginManager().callEvent(new GUIItemSave(event.getPlayer(), storageGui));
         }
-
-
 
 
     }
