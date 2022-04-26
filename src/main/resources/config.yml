@@ -4,9 +4,12 @@ version: 1.0.25
 general-settings:
   enable-log: true
   # 玩家必须取出gui内所有物品才能关闭该gui
-  cancel-when-not-empty: false
+  cancel-when-not-empty: true
   # 玩家库存中如果有物品则登录自动打开此gui
-  auto-open-gui: false
+  auto-open-gui: true
+  # 玩家是否可以储存非购买物品
+  enable-storage: true
+
 
 security-settings:
   # 是否开启事物回滚

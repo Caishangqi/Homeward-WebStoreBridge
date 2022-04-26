@@ -34,7 +34,7 @@ public final class shopconnectbridge extends JavaPlugin {
 
     public static FileConfiguration config;
 
-    //全局plugin
+    //全局plugin 无需再次初始化但是必须在插件注册前
     public static shopconnectbridge plugin;
 
     public static CommandManager commandManager;

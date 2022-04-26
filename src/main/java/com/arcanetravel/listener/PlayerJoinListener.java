@@ -31,14 +31,14 @@ public class PlayerJoinListener implements Listener {
             StorageGui playerDeliverGUI = shopconnectbridge.playerDeliverGUI.get(String.valueOf(event.getPlayer().getUniqueId()));
 
             try {
-
-
+                
                 items = shopconnectbridge.cartItemDao.queryBuilder().where().eq("uuid", uniqueId).query();
                 carts = shopconnectbridge.playerCartDao.queryBuilder().where().eq("uuid", uniqueId).query();
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
 
+            //如果背包里面有东西啧打开，查看数据库库存
             if (carts.size() > 0 || items.size() > 0 || !GUIManipulation.isGUIEmpty(playerDeliverGUI)) {
                 StorageGui gui = DeliverGUI.getGui();
                 GUIManipulation.openGUI(gui, event.getPlayer(), shopconnectbridge.playerDeliverGUI);

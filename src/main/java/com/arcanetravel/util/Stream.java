@@ -13,7 +13,6 @@ public class Stream {
     //编译OBJ序列化
     public static String writeEncodedObject(Object object) {
 
-
         String encodeObject = null;
 
         try {
@@ -51,22 +50,6 @@ public class Stream {
         bin.close();
         in.close();
         return o;
-
-
-    }
-
-    //编译OBJ反序列化
-    public static Object writeDecodedObject1(String stringObject) throws IOException, ClassNotFoundException {
-
-        byte[] serialized = Base64.getDecoder().decode(stringObject);
-
-        ByteArrayInputStream innnnn = new ByteArrayInputStream(serialized);
-
-        BukkitObjectInputStream binnnnn = new BukkitObjectInputStream(innnnn);
-
-
-        return binnnnn.readObject();
-
 
     }
 
