@@ -46,6 +46,7 @@ public class Stream {
         ByteArrayInputStream in = new ByteArrayInputStream(serialized);
 
         BukkitObjectInputStream bin = new BukkitObjectInputStream(in);
+
         Object o = bin.readObject();
         bin.close();
         in.close();

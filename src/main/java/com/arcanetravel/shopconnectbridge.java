@@ -17,7 +17,6 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-
 public final class shopconnectbridge extends JavaPlugin {
 
 
@@ -99,7 +98,6 @@ public final class shopconnectbridge extends JavaPlugin {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
     }
 

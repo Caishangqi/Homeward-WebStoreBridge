@@ -20,9 +20,7 @@ public class GUIItemSaveListener implements Listener {
     @EventHandler
     public void onGUIItemSave(GUIItemSave event) {
 
-
         //遍历指定物品栏储存到数据库
-
         //11 12 13 14 15 20 21 22 23 24
         Integer[] cache = {11, 12, 13, 14, 15, 20, 21, 22, 23, 24};
         List<Integer> avaliableIndex = Arrays.asList(cache);
@@ -38,7 +36,6 @@ public class GUIItemSaveListener implements Listener {
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
-
 
                 event.getGui().getInventory().setItem(number, new ItemStack(Material.AIR));
             }
